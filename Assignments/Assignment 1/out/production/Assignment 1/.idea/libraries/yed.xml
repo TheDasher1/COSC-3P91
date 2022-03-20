@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="yed">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/yed.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

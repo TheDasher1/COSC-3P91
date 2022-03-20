@@ -1,0 +1,14 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "e:\\COSC 3P91\\javafx-sdk-17.0.2\\lib\\javafx.base.jar",
+        "e:\\COSC 3P91\\javafx-sdk-17.0.2\\lib\\javafx.controls.jar",
+        "e:\\COSC 3P91\\javafx-sdk-17.0.2\\lib\\javafx.fxml.jar",
+        "e:\\COSC 3P91\\javafx-sdk-17.0.2\\lib\\javafx.graphics.jar",
+        "e:\\COSC 3P91\\javafx-sdk-17.0.2\\lib\\javafx.media.jar",
+        "e:\\COSC 3P91\\javafx-sdk-17.0.2\\lib\\javafx.swing.jar",
+        "e:\\COSC 3P91\\javafx-sdk-17.0.2\\lib\\javafx.web.jar",
+        "e:\\COSC 3P91\\javafx-sdk-17.0.2\\lib\\javafx-swt.jar"
+    ],
+    "java.dependency.packagePresentation": "hierarchical"
+}

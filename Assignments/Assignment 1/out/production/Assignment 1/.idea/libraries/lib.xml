@@ -1,0 +1,26 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/common-image.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-bmp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-iff.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-tga.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-tiff.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/common-lang.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/vectorgraphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-psd.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-hdr.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/common-io.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-pict.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-jpeg.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-sgi.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-pcx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-icns.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-metadata.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tools/yed-3.19.1.1/lib/imageio-thumbsdb.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

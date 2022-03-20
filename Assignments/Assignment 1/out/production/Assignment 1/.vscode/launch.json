@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch mainGameLogic",
+            "request": "launch",
+            "mainClass": "mainGameLogic",
+            "projectName": "Assignment 1_7d0fe4d7"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch mainGame",
+            "request": "launch",
+            "mainClass": "mainGame",
+            "projectName": "Assignment 1_7d0fe4d7"
+        }
+    ]
+}
