@@ -1,6 +1,7 @@
 package VehiclePackage;
 
 import MapPackage.*;
+import UserPackage.User;
 
 public class Car implements Vehicle {
 
@@ -10,14 +11,16 @@ public class Car implements Vehicle {
     private Road currRoad;
     private Intersection currIntersection;
     private int currSpot = 0;
+    private User owner;
 
-    public Car(int vehicleID, int startSpeed, Road startingRoad, int startInLane) {
+    public Car(int vehicleID, int startSpeed, Road startingRoad, int startInLane, User Owner) {
         this.vehicleID = vehicleID;
         // this.vehicleMake = vehicleMake;
         // this.vehicleColor = vehicleColor;
         this.currSpeed = startSpeed;
         this.currRoad = startingRoad;
         this.inLane = startInLane;
+        this.owner = Owner;
 
     }
 
@@ -177,6 +180,12 @@ public class Car implements Vehicle {
     public int getCurrPosition() {
         // TODO Auto-generated method stub
         return this.currPos;
+    }
+
+    @Override
+    public User getOwner() {
+        // TODO Auto-generated method stub
+        return this.owner;
     }
     
 }

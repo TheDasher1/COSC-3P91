@@ -1,0 +1,9 @@
+intersect_1 1 
+intersect_2 2
+intersect_3 3
+intersect_4 4
+roadsect
+road_1 1 4 40 1 2
+road_2 2 3 50 2 3
+road_3 3 4 40 3 4
+road_4 4 4 30 4 1

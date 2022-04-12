@@ -10,6 +10,15 @@ public class Road {
     private Intersection topIntersection, bottomIntersection;
     private Vehicle[] vehiclesOnThisRoad;
 
+    /**
+     * 
+     * 
+     * 
+     * @param RoadName
+     * @param RoadID
+     * @param maxNumOfLanes
+     * @param MAXVehiclesPerLane
+     */
     public Road(String RoadName, int RoadID, int maxNumOfLanes, int MAXVehiclesPerLane) {
         this.roadName = RoadName;
         this.roadID = RoadID;
@@ -27,6 +36,17 @@ public class Road {
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param RoadName
+     * @param RoadID
+     * @param MaxLanes
+     * @param MAXVehiclesPerLane
+     * @param TopIntersection
+     * @param BottomIntersection
+     */
     public Road(String RoadName, int RoadID, int MaxLanes, int MAXVehiclesPerLane, Intersection TopIntersection, Intersection BottomIntersection) {
         this.roadName = RoadName;
         this.roadID = RoadID;
@@ -38,26 +58,57 @@ public class Road {
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public String getRoadName() {
         return this.roadName;
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public int getRoadID() {
         return this.roadID;
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public int getMaxVehiclesPerLane() {
         return this.maxVehiclesPerLane;
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public boolean canIntersectionBeAttached() {
         return (this.topIntersection == null || this.bottomIntersection == null) ? true : false;
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param intsect
+     * @return
+     */
     public boolean setIntersection(Intersection intsect) {
         if (this.topIntersection == null) {
             this.topIntersection = intsect;
@@ -75,6 +126,13 @@ public class Road {
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param vehicle
+     * @return
+     */
     public boolean isVehiclOnThisRoad(Vehicle vehicle) {
         // check <list> in this road if the vehicle exists
         for (Vehicle v : this.vehiclesOnThisRoad) {
@@ -87,6 +145,14 @@ public class Road {
         return false;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param vehicle
+     * @param lane
+     * @return
+     */
     public boolean addVehicle(Vehicle vehicle, int lane) {
         // check if vehicle exits in this road first with isVehicleOnThisRoad(), if not add the given vehicle, else return false
         if (!this.isVehiclOnThisRoad(vehicle)) {
@@ -101,6 +167,13 @@ public class Road {
         return false;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param vehicle
+     * @return
+     */
     public boolean removeVehicle(Vehicle vehicle) {
         // check if vehicle exists on this road, if it does, delete it and return true to show sucessfull operation
         for (Vehicle v : this.vehiclesOnThisRoad) {
@@ -117,6 +190,13 @@ public class Road {
         return false;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param intersection
+     * @return
+     */
     public boolean setTopIntersection(Intersection intersection) {
         // check if the given intersection is equal to bottom intersection to prevent error
         if (this.bottomIntersection != intersection) {
@@ -129,10 +209,23 @@ public class Road {
         return false;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public Intersection getTopIntersection() {
         return this.topIntersection;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param intersection
+     * @return
+     */
     public boolean setBottomIntersection(Intersection intersection) {
         // check if the given intersection is equal to top intersection to prevent error
         if (this.topIntersection != intersection) {
@@ -145,15 +238,33 @@ public class Road {
         return false;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public Intersection getBottomIntersection() {
         return this.bottomIntersection;
     }
 
-    public int getLaneSize() {
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
+    public int getNumLanes() {
         return this.lanes[0].getLengthOfLane();
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public Vehicle[] getAllVehiclesOnRoad() {
         return this.vehiclesOnThisRoad;
     }

@@ -11,16 +11,36 @@ public class Lane {
     // private Vehicle[] vehicles;
     private List<Vehicle> listOfVehicles;
 
+    /**
+     * 
+     * 
+     * 
+     * @param lengthofLane
+     */
     public Lane(int lengthofLane) {
         this.lengthOfLane = lengthofLane;
         this.listOfVehicles = new LinkedList<Vehicle>();
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public int getLengthOfLane() {
         return this.lengthOfLane;
+
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param vehicle
+     * @return
+     */
     public boolean addVehicle(Vehicle vehicle) {
         //this.listOfVehicles.add(vehicle);
         if (!this.doesVehicleExistInThisLane(vehicle)) {
@@ -33,14 +53,28 @@ public class Lane {
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param vehicle
+     * @return
+     */
     public boolean doesVehicleExistInThisLane(Vehicle vehicle) {
         // check linkedlist for given vehicle and return true or false based on existence
         return (this.listOfVehicles.contains(vehicle) ? true : false);
     }
 
-    public Vehicle removeVehicle(Vehicle vehicleName) {
+    /**
+     * 
+     * 
+     * 
+     * @param vehicle
+     * @return
+     */
+    public Vehicle removeVehicle(Vehicle vehicle) {
 
-        return (this.doesVehicleExistInThisLane(vehicleName)) ? this.listOfVehicles.remove(this.listOfVehicles.indexOf(vehicleName)) : null;
+        return (this.doesVehicleExistInThisLane(vehicle)) ? this.listOfVehicles.remove(this.listOfVehicles.indexOf(vehicle)) : null;
     }
 
     // public Vehicle remoVehicle(int vehicleID) {

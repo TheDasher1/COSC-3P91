@@ -15,6 +15,13 @@ public class Intersection {
     private Vehicle[] vehiclesHere;
     // private int currRoadsGoing;
 
+    /**
+     * 
+     * 
+     * 
+     * @param intersectionName
+     * @param intersectionID
+     */
     public Intersection(String intersectionName, int intersectionID) {
         this.IntersectionName = intersectionName;
         this.IntersectionID = intersectionID;
@@ -27,35 +34,84 @@ public class Intersection {
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public String getIntersectionName() {
         return this.IntersectionName;
 
     }
     
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public int getIntersectionID() {
         return this.IntersectionID;
     }
 
-    public TrafficLight getTrafficLight() {
-        if (this.traficLight1.CurrentLight == TrafficLightColor.GREEN) {
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
+    public TrafficLight getGoingTrafficLight() {
+        if (this.traficLight1.getCurrentLight() == TrafficLightColor.GREEN) {
             return this.traficLight1;
             
-        } else if (this.traficLight2.CurrentLight == TrafficLightColor.GREEN) {
+        } else if (this.traficLight2.getCurrentLight() == TrafficLightColor.GREEN) {
             return this.traficLight2;
 
         } else {
-            traficLight1.changeLight(TrafficLightColor.GREEN);
+            traficLight1.setLightColor(TrafficLightColor.GREEN);
             return this.traficLight1;
 
         }
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     */
     public void changeTrafficLight() {
         // also controls the current roads going
+        if (this.traficLight1.getCurrentLight() == TrafficLightColor.RED) {
+            // swap the lights being red and green
+            this.traficLight1.changeLight();
+            this.traficLight2.changeLight();
+
+            // changes the roads that are going
+            this.currRoadsGoing[0] = 0;//this.roadsAttachedTo.get(0);
+            this.currRoadsGoing[1] = 1;//this.roadsAttachedTo.get(1);
+
+        } else if (this.traficLight2.getCurrentLight() == TrafficLightColor.RED) {
+            // swap the lights being red and green
+            this.traficLight1.changeLight();
+            this.traficLight2.changeLight();
+
+            // changes the roads that are going
+            this.currRoadsGoing[0] = 2;//this.roadsAttachedTo.get(0);
+            this.currRoadsGoing[1] = 3;//this.roadsAttachedTo.get(1);
+
+        }
         
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param road
+     * @return
+     */
     public boolean attachRoad(Road road) {
         if (this.roadsAttachedTo.size() < 4) {
             // this.roadsAttachedTo[this.roadsAttachedTo.length] = road;
@@ -69,10 +125,24 @@ public class Intersection {
 
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param road
+     * @return
+     */
     public boolean removeRoad(Road road) {
         return this.roadsAttachedTo.remove(road);
     }
     
+    /**
+     * 
+     * 
+     * 
+     * @param roadID
+     * @return
+     */
     public boolean removeRoad(int roadID) {
         for (Road road : this.roadsAttachedTo) {
             if (road.getRoadID() == roadID) {
@@ -87,10 +157,24 @@ public class Intersection {
         return false;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param road
+     * @return
+     */
     public boolean isRoadAttached(Road road) {
         return this.roadsAttachedTo.contains(road);
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param roadID
+     * @return
+     */
     public boolean isRoadAttached(int roadID) {
         for (Road road : this.roadsAttachedTo) {
             if (road.getRoadID() == roadID) {
@@ -104,20 +188,45 @@ public class Intersection {
         return false;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public boolean canARoadBeAttached() {
         return ((this.roadsAttachedTo.size() < 4) ? true : false);
         
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public List<Road> getRoadsAttached() {
         return this.roadsAttachedTo;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param vehicle
+     */
     public void addVehicle(Vehicle vehicle) {
         this.vehiclesHere[this.vehiclesHere.length] = vehicle;
         
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param vehicle
+     * @return
+     */
     public Vehicle removeVehicle(Vehicle vehicle) {
         Vehicle retVehicle = null;
 
@@ -133,6 +242,13 @@ public class Intersection {
         return retVehicle;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param vehicleID
+     * @return
+     */
     public Vehicle removeVehicle(int vehicleID) {
         Vehicle retVehicle = null;
 
@@ -148,6 +264,13 @@ public class Intersection {
         return retVehicle;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @param vehicle
+     * @return
+     */
     public boolean isVehicleInThisSection(Vehicle vehicle) {
         for (int i = 0; i < this.vehiclesHere.length; i ++) {
             if (this.vehiclesHere[i] == vehicle) {
@@ -160,6 +283,13 @@ public class Intersection {
         return false;
     }
     
+    /**
+     * 
+     * 
+     * 
+     * @param vehicleID
+     * @return
+     */
     public boolean isVehicleInThisSection(int vehicleID) {
         for (int i = 0; i < this.vehiclesHere.length; i ++) {
             if (this.vehiclesHere[i].getVehicleID() == vehicleID) {
@@ -172,6 +302,12 @@ public class Intersection {
         return false;
     }
 
+    /**
+     * 
+     * 
+     * 
+     * @return
+     */
     public Vehicle[] getAllVehiclesHere() {
         return this.vehiclesHere;
     }

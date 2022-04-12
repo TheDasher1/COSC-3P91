@@ -1,6 +1,7 @@
 package VehiclePackage;
 
 import MapPackage.*;
+import UserPackage.User;
 
 public interface Vehicle {
 
@@ -41,5 +42,7 @@ public interface Vehicle {
     public void setCurrPosition(int newPos);
     
     public void updateCurrPosition();
+
+    public User getOwner();
     
 }

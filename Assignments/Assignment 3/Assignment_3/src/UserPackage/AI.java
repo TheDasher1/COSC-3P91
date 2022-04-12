@@ -49,41 +49,41 @@ public class AI implements User {
         
     }
 
-    @Override
-    public Vehicle[] lookAround(Road road) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // @Override
+    // public Vehicle[] lookAround(Road road) {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 
-    @Override
-    public Vehicle[] lookAround(Intersection intersection) {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // @Override
+    // public Vehicle[] lookAround(Intersection intersection) {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 
-    @Override
-    public boolean changeLanes(Road roadName, int newLane) {
-        // TODO Auto-generated method stub
-        return false;
-    }
+    // @Override
+    // public boolean changeLanes(Road roadName, int newLane) {
+    //     // TODO Auto-generated method stub
+    //     return false;
+    // }
 
-    @Override
-    public boolean turnAtIntersection(Road roadToTurn) {
-        // TODO Auto-generated method stub
-        return false;
-    }
+    // @Override
+    // public boolean turnAtIntersection(Road roadToTurn) {
+    //     // TODO Auto-generated method stub
+    //     return false;
+    // }
 
-    @Override
-    public boolean turnAtIntersection(int roadNum) {
-        // TODO Auto-generated method stub
-        return false;
-    }
+    // @Override
+    // public boolean turnAtIntersection(int roadNum) {
+    //     // TODO Auto-generated method stub
+    //     return false;
+    // }
 
-    @Override
-    public void gamble() {
-        // TODO Auto-generated method stub
+    // @Override
+    // public void gamble() {
+    //     // TODO Auto-generated method stub
         
-    }
+    // }
 
     @Override
     public int getPlayerRep() {

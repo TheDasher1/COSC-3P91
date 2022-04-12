@@ -163,5 +163,11 @@ public class Bus implements Vehicle {
         // TODO Auto-generated method stub
         return 0;
     }
+
+    @Override
+    public User getOwner() {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 }

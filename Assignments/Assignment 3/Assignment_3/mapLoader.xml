@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Map>
+    <Intersection>
+        <name>"intersect 1"</name>
+        <id>1</id>
+    </Intersection>
+    <Intersection>
+        <name>intersect 2</name>
+        <id>2</id>
+    </Intersection>
+	<Intersection>
+        <name>intersect 3</name>
+        <id>3</id>
+    </Intersection>
+	<Intersection>
+        <name>intersect 4</name>
+        <id>4</id>
+    </Intersection>
+	<Road>
+		<name>road 1</name>
+		<id>1</id>
+		<maxLanes>4</maxLanes>
+		<maxVehiclesPerLane>40</maxVehiclesPerLane>
+		<topIntersection>1</topIntersection>
+		<bottomIntersection>2</bottomIntersection>
+	</Road>
+	<Road>
+		<name>road 2</name>
+		<id>2</id>
+		<maxLanes>3</maxLanes>
+		<maxVehiclesPerLane>50</maxVehiclesPerLane>
+		<topIntersection>2</topIntersection>
+		<bottomIntersection>3</bottomIntersection>
+	</Road>
+	<Road>
+		<name>road 3</name>
+		<id>3</id>
+		<maxLanes>4</maxLanes>
+		<maxVehiclesPerLane>40</maxVehiclesPerLane>
+		<topIntersection>3</topIntersection>
+		<bottomIntersection>4</bottomIntersection>
+	</Road>
+	<Road>
+		<name>road 4</name>
+		<id>4</id>
+		<maxLanes>4</maxLanes>
+		<maxVehiclesPerLane>30</maxVehiclesPerLane>
+		<topIntersection>4</topIntersection>
+		<bottomIntersection>1</bottomIntersection>
+	</Road>
+</Map>

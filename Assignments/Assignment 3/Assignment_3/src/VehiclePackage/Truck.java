@@ -1,6 +1,7 @@
 package VehiclePackage;
 
 import MapPackage.*;
+import UserPackage.User;
 
 public class Truck implements Vehicle {
 
@@ -150,6 +151,12 @@ public class Truck implements Vehicle {
     public int getCurrPosition() {
         // TODO Auto-generated method stub
         return 0;
+    }
+
+    @Override
+    public User getOwner() {
+        // TODO Auto-generated method stub
+        return null;
     }
     
 }

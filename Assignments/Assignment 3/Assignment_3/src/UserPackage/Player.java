@@ -8,12 +8,14 @@ public class Player implements User {
     private String playerName, playerSID;
     private int playerID, repuation;
     private Vehicle playerVehicle;
+    private PlayerController controller;
 
     public Player(String PlayerName, int PlayerID) {
         this.playerName = PlayerName;
         this.playerID = PlayerID;
         this.repuation = 100;
         this.playerVehicle = null;
+        // this.controller = controller;
 
     }
     
@@ -46,46 +48,61 @@ public class Player implements User {
         
     }
 
-    @Override
-    public Vehicle[] lookAround(Road road) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public Vehicle[] lookAround(Intersection intersection) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public boolean changeLanes(Road roadName, int newLane) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean turnAtIntersection(Road roadToTurn) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean turnAtIntersection(int roadNum) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public void gamble() {
-        // TODO Auto-generated method stub
+    public PlayerController getPlayerController() {
+        return this.controller;
         
     }
+
+    public void setPlayerController(PlayerController controller) {
+        this.controller = controller;
+
+    }
+
+    // @Override
+    // public Vehicle[] lookAround(Road road) {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
+
+    // @Override
+    // public Vehicle[] lookAround(Intersection intersection) {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
+
+    // @Override
+    // public boolean changeLanes(Road roadName, int newLane) {
+    //     // TODO Auto-generated method stub
+    //     return false;
+    // }
+
+    // @Override
+    // public boolean turnAtIntersection(Road roadToTurn) {
+    //     // TODO Auto-generated method stub
+    //     return false;
+    // }
+
+    // @Override
+    // public boolean turnAtIntersection(int roadNum) {
+    //     // TODO Auto-generated method stub
+    //     return false;
+    // }
+
+    // @Override
+    // public void gamble() {
+    //     // TODO Auto-generated method stub
+        
+    // }
 
     @Override
     public int getPlayerRep() {
         // TODO Auto-generated method stub
-        return 0;
+        return this.repuation;
+    }
+
+    public void changeReputation(int changeRep) {
+        this.repuation += changeRep;
+
     }
     
 }

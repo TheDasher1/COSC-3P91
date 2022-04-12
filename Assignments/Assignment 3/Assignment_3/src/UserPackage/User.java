@@ -15,16 +15,16 @@ public interface User {
 
     public void changeVehicle(Vehicle newVehicle);
 
-    public Vehicle[] lookAround(Road road);
+    // public Vehicle[] lookAround(Road road);
 
-    public Vehicle[] lookAround(Intersection intersection);
+    // public Vehicle[] lookAround(Intersection intersection);
 
-    public boolean changeLanes(Road roadName, int newLane);
+    // public boolean changeLanes(Road roadName, int newLane);
 
-    public boolean turnAtIntersection(Road roadToTurn);
+    // public boolean turnAtIntersection(Road roadToTurn);
 
-    public boolean turnAtIntersection(int roadNum);
+    // public boolean turnAtIntersection(int roadNum);
 
-    public void gamble();
+    // public void gamble();
 
 }
