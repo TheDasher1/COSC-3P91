@@ -18,6 +18,7 @@ public class ClientHandler implements Runnable {
 
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
     public static mainGameLogic gameLogic = new mainGameLogic();
+    public static boolean ownerMade = false;
     
     private Socket sock;
     private BufferedReader bufferedReader;
@@ -100,6 +101,15 @@ public class ClientHandler implements Runnable {
             this.clientHandlers.add(this);
 
             sendMSGToAllClients("SERVER: " + this.clientName + " has joined the game.");
+
+            if (this.clientHandlers.size() < 2 & !this.ownerMade) { // there is only 1 player then that person is considered the ownwer of this server and can do things other players can not (change the map, add AI, etc..), another bool value incase all but 1 players leave and the next person that may join to make changes to map (probably change ownerships some way but im not gonna bother with that)
+                this.ownerMade = true;
+                // present this client with options to create/modify the map
+                
+
+            }
+
+            // this.gameLogic.startGame(sock); // probably wrong here too
         
         } catch (IOException e) {
             deleteClient(this.sock, this.bufferedReader, this.bufferedWriter);
@@ -112,12 +122,21 @@ public class ClientHandler implements Runnable {
     public void run() {
         String msgFromClient;
 
-        this.gameLogic.startGame();
+        // try {
+        //     this.gameLogic.startGame(this.sock); // send the socket so a bufferedReader and Writer can be created to send msgs to the player(s) on the socket (I'm pretty sure I'm doing this wrong)
+
+        // } catch (IOException e1) {
+        //     e1.printStackTrace();
+            
+        // }
+
+        // this became really messy, I'm getting confused now too
 
         while (this.sock.isConnected()) {
             try {
                 msgFromClient = this.bufferedReader.readLine();
                 sendMSGToAllClients(msgFromClient);
+                // this.gameLogic.startGame(this.sock); // this might mean that startGame() is running individually for all the clients (probably wrong)
                 
             } catch (IOException e) {
                 deleteClient(this.sock, this.bufferedReader, this.bufferedWriter);

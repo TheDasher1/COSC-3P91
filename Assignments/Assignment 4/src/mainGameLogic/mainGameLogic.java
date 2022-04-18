@@ -14,11 +14,16 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
+import java.net.Socket;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 
@@ -113,7 +118,7 @@ public class mainGameLogic {
                 });
 
             } else if (ch.equals("5")) { // start the game
-                startGame();
+                // startGame();
 
                 break;
 
@@ -129,12 +134,15 @@ public class mainGameLogic {
      * 
      * This method is the main game manager. It moves all the vehicles on the map and presents the player with options on what to do 
      * in between each step. When the player vehicle reaches an intersection, it handles the vehicle turning into the correct road and lane.
+     * @throws IOException
      * 
      */
-    public void startGame() {
+    public void startGame(Socket sock) throws IOException {
         int pChoice;
         // put the player/vehicle on the road its supposed to start on (held by the vehicle)
-        // update all vehicle positions and decrease the timers on the traffic lights, which determine what roads are "going" 
+        // update all vehicle positions and decrease the timers on the traffic lights, which determine what roads are "going"
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(sock.getInputStream()));
+        BufferedWriter bufferWriter = new BufferedWriter(new OutputStreamWriter(sock.getOutputStream()));
 
         for (Vehicle v : map.getAllPlayerVehiclesOnMap()) { // processes all the vehicles on the map
             if (v.getCurrPosition() > map.getRoad(v.getCurrRoad().getRoadID()).getMaxVehiclesPerLane()) { // player has reached the end of this road and has arrived at an intersection, should decide which road they should go into from this intersection
