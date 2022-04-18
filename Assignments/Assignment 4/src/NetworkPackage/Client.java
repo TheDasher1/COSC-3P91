@@ -1,8 +1,10 @@
-package ClientPackage;
+package NetworkPackage;
 
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
+import UserPackage.Player;
+import IOPackage.Basic;
 
 public class Client {
 
@@ -10,14 +12,16 @@ public class Client {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     private String userName;
-
-    public Client(Socket socket, String userName) {
+    private int userID;
+    
+    public Client(Socket socket) {
         try {
             this.sock = socket;
             this.bufferedReader = new BufferedReader(new InputStreamReader(this.sock.getInputStream()));
             this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(this.sock.getOutputStream()));
-            this.userName = userName;
-        
+            // this.userName = userName;
+            // this.userID = userID;
+
         } catch (IOException ioe) {
             closeEverything(this.sock, this.bufferedReader, this.bufferedWriter);
 
@@ -41,6 +45,36 @@ public class Client {
                 this.bufferedWriter.flush();
 
             }
+
+            input.close();
+
+        } catch (IOException ex) {
+            closeEverything(this.sock, this.bufferedReader, this.bufferedWriter);
+            
+        }
+
+    }
+
+    public void getCommand() {
+        String tempCommand;
+
+        try {
+            this.bufferedWriter.write(this.userName);
+            this.bufferedWriter.newLine();
+            this.bufferedWriter.flush();
+
+            Scanner input = new Scanner(System.in);
+
+            while (this.sock.isConnected()) {
+                tempCommand = input.nextLine();
+
+                this.bufferedWriter.write(tempCommand);
+                this.bufferedWriter.newLine();
+                this.bufferedWriter.flush();
+
+            }
+
+            input.close();
 
         } catch (IOException ex) {
             closeEverything(this.sock, this.bufferedReader, this.bufferedWriter);
@@ -90,13 +124,20 @@ public class Client {
     }
 
     public static void main(String[] args) throws IOException {
-        Scanner input = new Scanner(System.in);
+        // Scanner input = new Scanner(System.in);
+        Basic bs = new Basic();
 
-        System.out.print("Enter a user name to use: ");
-        String userName = input.nextLine();
+        System.out.print("Enter the port number to join: ");
+        int portNum = bs.getInt();
 
-        Socket socket = new Socket("localhost", 9001);
-        Client client = new Client(socket, userName);
+        // System.out.print("Enter a user name to use: ");
+        // String userName = bs.getString();
+
+        // System.out.print("Enter a user ID for yourself: ");
+        // int uID = bs.getInt();
+
+        Socket socket = new Socket("localhost", portNum);
+        Client client = new Client(socket);
 
         client.listenForMessage();
         client.sendMessage();

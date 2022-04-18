@@ -1,11 +1,13 @@
-package ClientPackage;
+package NetworkPackage;
 
 import java.io.*;
 import java.net.*;
+import IOPackage.Basic;
 
 public class Server {
 
     private ServerSocket serveSocket;
+    // private Basic bs;
 
     public Server(ServerSocket serverSocket) {
         this.serveSocket = serverSocket;
@@ -34,14 +36,32 @@ public class Server {
 
     }
 
-    public static void main(String[] args) throws IOException, UnknownHostException {
-        ServerSocket serveSock = new ServerSocket(9001);
+    public static void main(String[] args) throws IOException {
+        // ServerSocket serveSock = new ServerSocket(9001);
+        Basic bs = new Basic();
+        int portNum;
 
         // Socket sock = serveSock.accept();
 
         // System.out.println("Client connected.");
 
-        new Server(serveSock).start();
+        // new Server(serveSock).start();
+
+        while (true) {
+            System.out.print("Enter a port number to start a server on( > 9000)(0 to exit): ");
+            portNum = bs.getInt();
+
+            if (portNum == 0) {
+                break;
+
+            } else if (portNum > 9000) {
+                ServerSocket newServerSocket = new ServerSocket(portNum);
+
+                new Server(newServerSocket).start();
+
+            }
+
+        }
         
     }
     

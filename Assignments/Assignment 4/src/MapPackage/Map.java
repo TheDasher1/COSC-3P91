@@ -253,6 +253,17 @@ public class Map {
         return (this.playerVehicles.containsKey(vehicle.getVehicleID())) ? true : false;
 
     }
+    
+    /**
+     * 
+     * @param vehicleID
+     * @return
+     */
+    public boolean doesPlayerVehicleExist(int vehicleID) {
+
+        return (this.playerVehicles.containsKey(vehicleID)) ? true : false;
+
+    }
 
     /**
      * 
@@ -261,9 +272,22 @@ public class Map {
      * @param vehicle
      * @return
      */
-    public boolean doesAIVehicleExist(Vehicle vehicle) {
+    public boolean doesAIVehicleExist(Vehicle AIvehicle) {
 
-        return (this.aiVehicles.containsKey(vehicle.getVehicleID())) ? true : false;
+        return (this.aiVehicles.containsKey(AIvehicle.getVehicleID())) ? true : false;
+
+    }
+
+    /**
+     * 
+     * 
+     * 
+     * @param AIvehicleID
+     * @return
+     */
+    public boolean doesAIVehicleExist(int AIvehicleID) {
+
+        return (this.aiVehicles.containsKey(AIvehicleID)) ? true : false;
 
     }
 

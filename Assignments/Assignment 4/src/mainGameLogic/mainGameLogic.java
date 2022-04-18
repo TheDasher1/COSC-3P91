@@ -26,6 +26,7 @@ import MapPackage.*;
 import UserPackage.*;
 import VehiclePackage.*;
 import GUIPackage.*;
+import NetworkPackage.*;
 
 public class mainGameLogic {
 
@@ -36,8 +37,9 @@ public class mainGameLogic {
     public HashMap<Integer, AI> AIplayers = new HashMap<Integer, AI>();// = new ArrayList<AI>();
     // public HashMap<Integer, Intersection> intersections = new HashMap<Integer, Intersection>();
     Scanner input = new Scanner(System.in);
+    
+    // I now realise that having a seperate HashMap to just keep track of IDs that are already used is kind of redundant when I'm already storing existing players and stuff in a HashMap, my bad
     HashMap<Integer, Boolean> usedPlayerIDList = new HashMap<Integer, Boolean>();
-    int AIID = 1;
     HashMap<Integer, Boolean> usedIntersectionIDList = new HashMap<Integer, Boolean>();
     HashMap<Integer, Boolean> usedRoadIDList = new HashMap<Integer, Boolean>();
     HashMap<Integer, Boolean> usedVehicleIDList = new HashMap<Integer, Boolean>();
@@ -51,12 +53,12 @@ public class mainGameLogic {
      * 
      */
     public mainGameLogic() {
-        String ch;
+        String ch = "";
         
         while (true) {
             // ---------------------------- GAME START ------------------------------------------------------------
             System.out.print("\n1: Create Map from File \n2: Create Intersection \n3: Create Road \n4: Continue \n0: Exit: ");
-            ch = input.nextLine();
+            // ch = input.nextLine();
 
             // --------------------------- EXIT GAME -------------------------------------------------------------
             if (ch.equals("0")) {
@@ -87,7 +89,7 @@ public class mainGameLogic {
 
         while (true) {
             System.out.println("1:Create User \n2: List all players\n3: List all Intersections\n4: List all Roads\n5: Play Game\n");
-            ch = input.nextLine();
+            // ch = input.nextLine();
 
             if (ch.equals("1")) {
                 addUsers();
@@ -594,11 +596,6 @@ public class mainGameLogic {
                     String name = element.getElementsByTagName("name").item(0).getTextContent();
                     int id = Integer.parseInt(element.getElementsByTagName("id").item(0).getTextContent());
 
-                    // System.out.println("Current Element: " + node.getNodeName());
-                    // System.out.println("Name: " + name);
-                    // System.out.println("ID: " + id);
-                    // System.out.println();
-
                     if (!usedIntersectionIDList.containsKey(id)) {
                         map.createIntersection(name, id);
 
@@ -625,15 +622,6 @@ public class mainGameLogic {
                     int maxVehiclesPerLane = Integer.parseInt(element.getElementsByTagName("maxVehiclesPerLane").item(0).getTextContent());
                     int topIntersectionID = Integer.parseInt(element.getElementsByTagName("topIntersection").item(0).getTextContent());
                     int bottomIntersectionID = Integer.parseInt(element.getElementsByTagName("bottomIntersection").item(0).getTextContent());
-
-                    // System.out.println("Current Element: " + node.getNodeName());
-                    // System.out.println("Name: " + name);
-                    // System.out.println("ID: " + id);
-                    // System.out.println("Max Lanes: " + maxLanes);
-                    // System.out.println("Max Vehicles Per Lanes: " + maxVehiclesPerLane);
-                    // System.out.println("Top Intersection ID: " + topIntersectionID);
-                    // System.out.println("Bottom Intersection ID: " + bottomIntersectionID);
-                    // System.out.println();
 
                     if (!usedRoadIDList.containsKey(id)) {
                         map.createAttactedRoad(name, id, maxLanes, maxVehiclesPerLane, map.getIntersection(topIntersectionID), map.getIntersection(bottomIntersectionID));
